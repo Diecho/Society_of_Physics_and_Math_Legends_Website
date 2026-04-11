@@ -1,0 +1,462 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-black: #0d0e15;
+    --bg-darker: #07080b;
+    --primary-blue: #00d2ff;
+    --secondary-blue: #3a7bd5;
+    --text-light: #e0e6ed;
+    --text-muted: #9ba4b5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-blue);
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(7, 8, 11, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* Sections */
+.section {
+    padding: 100px 10%;
+}
+
+.bg-darker {
+    background-color: var(--bg-darker);
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 0 10%;
+    padding-top: 80px;
+    background: radial-gradient(circle at top right, #111a2e, #0d0e15);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.meeting-info {
+    background: rgba(0, 210, 255, 0.05);
+    border-left: 4px solid var(--primary-blue);
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 0 8px 8px 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--bg-black);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-blue);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 210, 255, 0.1);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    max-width: 60%;
+}
+
+/* Officers Section */
+.subsection-title {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--primary-blue);
+}
+
+.officers-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.officer-card {
+    background-color: #151821;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 600px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.officer-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+.officer-info {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Research Section */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.research-card {
+    background-color: #151821;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid var(--secondary-blue);
+    transition: transform 0.3s;
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+}
+
+.research-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.download-link {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+/* Active Research Topics List (Minimalist List Style) */
+.active-research-list {
+    list-style: none;
+    margin-top: 30px;
+    padding: 0;
+    max-width: 800px; /* Keeps the lines from getting too long on wide screens */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.active-research-list li {
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle dividing line */
+    color: var(--text-muted);
+    font-size: 1rem;
+    transition: transform 0.2s, color 0.2s;
+    display: flex; /* Aligns the text and our custom bullet perfectly */
+}
+
+/* Adds a cool custom blue arrow/bullet to each item */
+.active-research-list li::before {
+    content: "▹"; 
+    color: var(--primary-blue);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.active-research-list li:last-child {
+    border-bottom: none; /* Keeps it clean by removing the line under the final item */
+}
+
+.active-research-list li:hover {
+    color: var(--text-light); /* Text brightens up when hovered */
+    transform: translateX(10px); /* Slides slightly to the right */
+}/* Gallery Section (Masonry Layout) */
+.gallery-grid {
+    column-count: 3; /* Shows 3 columns on big screens */
+    column-gap: 15px; /* Space between columns */
+    padding-top: 20px;
+}
+
+.gallery-item {
+    margin-bottom: 15px; /* Space below each image */
+    break-inside: avoid; /* Prevents an image from being chopped in half across columns */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #222;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto; /* Lets tall photos be tall, and wide photos be wide */
+    display: block;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+.gallery-item:hover img {
+    opacity: 1;
+    transform: scale(1.03); /* Slight zoom effect when hovered */
+}
+/* In-Progress Research Styling */
+.research-card.in-progress {
+    border-top: 4px dashed var(--text-muted); /* A dashed border looks 'under construction' */
+    background-color: rgba(21, 24, 33, 0.5); /* Slightly faded background */
+}
+
+.status-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-style: italic;
+}
+/* Gallery Action Button */
+.gallery-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+/* Events Section */
+.event-list {
+    list-style: none;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.event-list li {
+    display: flex;
+    background-color: #151821;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.event-date {
+    background-color: var(--primary-blue);
+    color: var(--bg-black);
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+}
+
+.event-details {
+    padding: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #050608;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+/* =========================================
+   RESPONSIVE DESIGN (Tablets & Phones)
+   ========================================= */
+
+/* For Tablets (Screens smaller than 992px) */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 140px;
+    }
+
+    .hero-image {
+        margin-top: 40px;
+        justify-content: center;
+    }
+
+    .hero-image img {
+        max-width: 50%;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+/* For Mobile Phones (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* Stack the navigation bar */
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        position: relative; /* Un-fixes it on mobile so it doesn't cover content */
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Reduce spacing for small screens */
+    .section {
+        padding: 60px 5%;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding-top: 40px;
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Stack buttons on top of each other */
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Stack the officer info into a single column */
+    .officer-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* Stack the event date and details */
+    .event-list li {
+        flex-direction: column;
+    }
+
+    .event-date {
+        width: 100%;
+        padding: 10px;
+    }
+    /* Tablet gallery */
+    .gallery-grid {
+        column-count: 2;
+    }
+    /* Phone gallery */
+    .gallery-grid {
+        column-count: 1;
+    }
+}
