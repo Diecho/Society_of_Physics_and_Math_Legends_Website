@@ -229,7 +229,7 @@
 
             // 2. The Math: Get the current day and pick a fact
             // This divides the current time by the milliseconds in a day to get a fixed number for today
-            const todayNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+            const todayNumber = Math.floor(Date.now() / (1));
             
             // The % (modulo) ensures that if we run out of facts, it just loops back to the beginning!
             const factIndex = todayNumber % physicsFacts.length;
