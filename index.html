@@ -69,6 +69,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
         <div class="fact-container">
             <div class="fact-header">
                 <span class="icon">⚡</span> Fun Physics Fact
@@ -78,7 +82,14 @@
 
 
     </section>
+    <section id="news" class="section">
+        <h2>Latest Science News</h2>
+        <p class="intro-text">Live updates pulled directly from Phys.org</p>
 
+        <div id="news-grid" class="research-grid">
+            <p style="text-align: center; width: 100%;">📡 Fetching the latest data from the physics universe...</p>
+        </div>
+    </section>
     <section id="research" class="section bg-darker">
         <h2>Our Research</h2>
         <p class="intro-text">Want to get hands-on experience? We invite you to join our research! We collaborate on
@@ -210,92 +221,152 @@
     </footer>
     <script>
         // ==========================================
-            // FACT OF THE DAY LOGIC
-            // ==========================================
-            
-   
+        // FACT OF THE DAY LOGIC
+        // ==========================================
+
+
 
         // 1. Your massive database of Physics Facts
-            const physicsFacts = [
-                "Light from the Earth takes just 1.255 seconds to reach the Moon.",
-                "If you traveled at the speed of light, time would completely stop for you.",
-                "There is a giant cloud of alcohol in Sagittarius B that holds enough alcohol to fill 400 trillion trillion pints of beer.",
-                "Because of gravitational time dilation, your head is slightly older than your feet.",
-                "A teaspoon of a neutron star would weigh about 6 billion tons on Earth.",
-                "Water can boil and freeze at the exact same time. This is known as the 'Triple Point'.",
-                "Venus spins backwards compared to the other planets in our solar system.",
-                "There are more stars in the universe than grains of sand on all the beaches on Earth.",
-                "Quantum entanglement allows particles to connect instantly, regardless of distance—Einstein called this 'spooky action at a distance'.",
-                "Sound travels about 4.3 times faster in water than it does in air.",
+        const physicsFacts = [
+            "Light from the Earth takes just 1.255 seconds to reach the Moon.",
+            "If you traveled at the speed of light, time would completely stop for you.",
+            "There is a giant cloud of alcohol in Sagittarius B that holds enough alcohol to fill 400 trillion trillion pints of beer.",
+            "Because of gravitational time dilation, your head is slightly older than your feet.",
+            "A teaspoon of a neutron star would weigh about 6 billion tons on Earth.",
+            "Water can boil and freeze at the exact same time. This is known as the 'Triple Point'.",
+            "Venus spins backwards compared to the other planets in our solar system.",
+            "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+            "Quantum entanglement allows particles to connect instantly, regardless of distance—Einstein called this 'spooky action at a distance'.",
+            "Sound travels about 4.3 times faster in water than it does in air.",
 
-                // Quantum Mechanics & Particle Physics
-                "Quantum entanglement allows particles to connect instantly, regardless of distance—Einstein called this 'spooky action at a distance'.",
-                "Because of quantum tunneling, particles can pass through solid barriers they shouldn't have the energy to cross. It's the only reason the Sun can shine!",
-                "At absolute zero (-273.15°C), particles don't completely stop moving; they still retain a tiny amount of 'zero-point energy'.",
-                "Light acts as both a wave and a particle depending on whether or not it is being observed, proven by the famous Double Slit Experiment.",
-                "You are mostly empty space. If you removed all the empty space from the atoms in all 8 billion humans, the entire human race would fit into the volume of a sugar cube.",
-                "An electron can theoretically be in multiple places at the exact same time until it is measured (Quantum Superposition).",
-                "Antimatter is real, and when it collides with normal matter, 100% of their mass is converted into pure energy.",
-                "Neutrinos are so ghostly that trillions of them from the Sun are passing through your body every single second without hitting anything.",
-                "Heisenberg's Uncertainty Principle states you can know a particle's exact position or its exact momentum, but never both at the same time.",
-                "The strong nuclear force that holds atoms together is 137 times stronger than electromagnetism, but only works at distances smaller than an atomic nucleus.",
-                
-                // Relativity & Time
-                "Because of gravitational time dilation, your head is slightly older than your feet.",
-                "If you traveled at the speed of light, time would completely stop for you.",
-                "Astronauts on the International Space Station experience time about 0.005 seconds slower than people on Earth because they are moving so fast.",
-                "Gravity isn't actually a pulling force; it is the curvature of spacetime around a massive object, like a bowling ball resting on a trampoline.",
-                "If you fell into a black hole, an outside observer would see you freeze at the event horizon and slowly fade red, but you would never appear to cross it.",
-                "The GPS in your phone has to constantly calculate for both special relativity (the satellites move fast) and general relativity (they are further from Earth's gravity).",
-                "If the Sun suddenly disappeared, we wouldn't know for 8 minutes and 20 seconds. Both the light and the gravitational pull take that long to reach Earth.",
-                "Light from the Earth takes just 1.255 seconds to reach the Moon.",
-                "As you approach the speed of light, your mass theoretically increases toward infinity, which is why nothing with mass can ever reach light speed.",
-                "Gravitational waves are ripples in the fabric of spacetime caused by some of the most violent and energetic processes in the Universe, like colliding black holes.",
+            // Quantum Mechanics & Particle Physics
+            "Quantum entanglement allows particles to connect instantly, regardless of distance—Einstein called this 'spooky action at a distance'.",
+            "Because of quantum tunneling, particles can pass through solid barriers they shouldn't have the energy to cross. It's the only reason the Sun can shine!",
+            "At absolute zero (-273.15°C), particles don't completely stop moving; they still retain a tiny amount of 'zero-point energy'.",
+            "Light acts as both a wave and a particle depending on whether or not it is being observed, proven by the famous Double Slit Experiment.",
+            "You are mostly empty space. If you removed all the empty space from the atoms in all 8 billion humans, the entire human race would fit into the volume of a sugar cube.",
+            "An electron can theoretically be in multiple places at the exact same time until it is measured (Quantum Superposition).",
+            "Antimatter is real, and when it collides with normal matter, 100% of their mass is converted into pure energy.",
+            "Neutrinos are so ghostly that trillions of them from the Sun are passing through your body every single second without hitting anything.",
+            "Heisenberg's Uncertainty Principle states you can know a particle's exact position or its exact momentum, but never both at the same time.",
+            "The strong nuclear force that holds atoms together is 137 times stronger than electromagnetism, but only works at distances smaller than an atomic nucleus.",
 
-                // Astrophysics & Space
-                "A teaspoon of a neutron star would weigh about 6 billion tons on Earth.",
-                "Venus spins backwards compared to the other planets in our solar system, and a day on Venus is actually longer than a year on Venus.",
-                "There is a giant cloud of alcohol in Sagittarius B that holds enough alcohol to fill 400 trillion trillion pints of beer.",
-                "There are more trees on Earth (about 3 trillion) than there are stars in the Milky Way galaxy (about 100-400 billion).",
-                "The observable universe is estimated to be 93 billion light-years in diameter.",
-                "Because light takes time to travel, looking up at the night sky is literally looking back in time. You are seeing stars as they were years, or even millennia, ago.",
-                "Jupiter's magnetic field is about 14 times stronger than Earth's and is the largest planetary structure in the solar system.",
-                "If two pieces of the exact same type of bare metal touch in the vacuum of space, they will permanently bond together. This is called 'cold welding'.",
-                "The Cosmic Microwave Background is the afterglow of the Big Bang, and you can see it as static on an old analog television.",
-                "Black holes aren't totally black; they slowly leak energy over trillions of years through a process called Hawking Radiation.",
-                "Dark matter and dark energy make up about 95% of the universe. All the stars, planets, and normal matter we can see only make up 5%.",
-                "A supernova explosion is so bright it can briefly outshine an entire galaxy of hundreds of billions of stars.",
-                "The Boomerang Nebula is the coldest known natural place in the universe, sitting at just 1 degree Kelvin.",
-                "Pulsars are spinning neutron stars that shoot beams of electromagnetic radiation from their poles, sometimes spinning hundreds of times per second.",
-                "Our galaxy, the Milky Way, is currently on a collision course with the Andromeda Galaxy, but they won't hit for another 4 billion years.",
+            // Relativity & Time
+            "Because of gravitational time dilation, your head is slightly older than your feet.",
+            "If you traveled at the speed of light, time would completely stop for you.",
+            "Astronauts on the International Space Station experience time about 0.005 seconds slower than people on Earth because they are moving so fast.",
+            "Gravity isn't actually a pulling force; it is the curvature of spacetime around a massive object, like a bowling ball resting on a trampoline.",
+            "If you fell into a black hole, an outside observer would see you freeze at the event horizon and slowly fade red, but you would never appear to cross it.",
+            "The GPS in your phone has to constantly calculate for both special relativity (the satellites move fast) and general relativity (they are further from Earth's gravity).",
+            "If the Sun suddenly disappeared, we wouldn't know for 8 minutes and 20 seconds. Both the light and the gravitational pull take that long to reach Earth.",
+            "Light from the Earth takes just 1.255 seconds to reach the Moon.",
+            "As you approach the speed of light, your mass theoretically increases toward infinity, which is why nothing with mass can ever reach light speed.",
+            "Gravitational waves are ripples in the fabric of spacetime caused by some of the most violent and energetic processes in the Universe, like colliding black holes.",
 
-                // Classical Mechanics, Forces & Cool Physics
-                "Water can boil and freeze at the exact same time. This is known as the 'Triple Point'.",
-                "Sound travels about 4.3 times faster in water than it does in air.",
-                "Glass is actually an amorphous solid, not a slow-moving liquid. The reason old windows are thicker at the bottom is just due to older manufacturing techniques.",
-                "The Coriolis effect dictates the rotation of massive weather systems like hurricanes, but it is way too weak to affect the direction water drains in your sink.",
-                "Magnets lose their magnetic properties if you heat them up past a certain point, known as the Curie temperature.",
-                "Diamond and graphite (pencil lead) are both made of 100% pure carbon. The only difference is how the crystal lattice of the atoms is arranged.",
-                "Friction in space is practically zero, which is why spacecraft don't need to keep firing their engines to maintain their speed.",
-                "A whip makes a 'crack' sound because the tip actually moves faster than the speed of sound, creating a miniature sonic boom.",
-                "Water is one of the few substances in the universe that expands when it freezes. If it didn't, ice would sink, and the oceans would freeze solid from the bottom up.",
-                "The Earth's magnetic field occasionally flips its north and south poles. The last reversal happened about 780,000 years ago.",
-                "Hot water can actually freeze faster than cold water under certain conditions. This is an unsolved physics mystery known as the Mpemba effect.",
-                "Lightning strikes the Earth about 100 times every single second.",
-                "The 'weightless' feeling astronauts experience in orbit isn't a lack of gravity; they are actually in a constant state of free-fall around the Earth.",
-                "Bismuth is diamagnetic, meaning it repels magnetic fields. If you put a strong magnet near it, the bismuth will actually push it away.",
-                "Kinetic energy scales with the square of velocity. That means a car crash at 60 mph has four times the destructive energy of a crash at 30 mph, not twice."
-            ];
+            // Astrophysics & Space
+            "A teaspoon of a neutron star would weigh about 6 billion tons on Earth.",
+            "Venus spins backwards compared to the other planets in our solar system, and a day on Venus is actually longer than a year on Venus.",
+            "There is a giant cloud of alcohol in Sagittarius B that holds enough alcohol to fill 400 trillion trillion pints of beer.",
+            "There are more trees on Earth (about 3 trillion) than there are stars in the Milky Way galaxy (about 100-400 billion).",
+            "The observable universe is estimated to be 93 billion light-years in diameter.",
+            "Because light takes time to travel, looking up at the night sky is literally looking back in time. You are seeing stars as they were years, or even millennia, ago.",
+            "Jupiter's magnetic field is about 14 times stronger than Earth's and is the largest planetary structure in the solar system.",
+            "If two pieces of the exact same type of bare metal touch in the vacuum of space, they will permanently bond together. This is called 'cold welding'.",
+            "The Cosmic Microwave Background is the afterglow of the Big Bang, and you can see it as static on an old analog television.",
+            "Black holes aren't totally black; they slowly leak energy over trillions of years through a process called Hawking Radiation.",
+            "Dark matter and dark energy make up about 95% of the universe. All the stars, planets, and normal matter we can see only make up 5%.",
+            "A supernova explosion is so bright it can briefly outshine an entire galaxy of hundreds of billions of stars.",
+            "The Boomerang Nebula is the coldest known natural place in the universe, sitting at just 1 degree Kelvin.",
+            "Pulsars are spinning neutron stars that shoot beams of electromagnetic radiation from their poles, sometimes spinning hundreds of times per second.",
+            "Our galaxy, the Milky Way, is currently on a collision course with the Andromeda Galaxy, but they won't hit for another 4 billion years.",
 
-            // 2. The Math: Get the current day and pick a fact
-            // This divides the current time by the milliseconds in a day to get a fixed number for today
-            const todayNumber = Math.floor(Date.now() / (1));
-            
-            // The % (modulo) ensures that if we run out of facts, it just loops back to the beginning!
-            const factIndex = todayNumber % physicsFacts.length;
+            // Classical Mechanics, Forces & Cool Physics
+            "Water can boil and freeze at the exact same time. This is known as the 'Triple Point'.",
+            "Sound travels about 4.3 times faster in water than it does in air.",
+            "Glass is actually an amorphous solid, not a slow-moving liquid. The reason old windows are thicker at the bottom is just due to older manufacturing techniques.",
+            "The Coriolis effect dictates the rotation of massive weather systems like hurricanes, but it is way too weak to affect the direction water drains in your sink.",
+            "Magnets lose their magnetic properties if you heat them up past a certain point, known as the Curie temperature.",
+            "Diamond and graphite (pencil lead) are both made of 100% pure carbon. The only difference is how the crystal lattice of the atoms is arranged.",
+            "Friction in space is practically zero, which is why spacecraft don't need to keep firing their engines to maintain their speed.",
+            "A whip makes a 'crack' sound because the tip actually moves faster than the speed of sound, creating a miniature sonic boom.",
+            "Water is one of the few substances in the universe that expands when it freezes. If it didn't, ice would sink, and the oceans would freeze solid from the bottom up.",
+            "The Earth's magnetic field occasionally flips its north and south poles. The last reversal happened about 780,000 years ago.",
+            "Hot water can actually freeze faster than cold water under certain conditions. This is an unsolved physics mystery known as the Mpemba effect.",
+            "Lightning strikes the Earth about 100 times every single second.",
+            "The 'weightless' feeling astronauts experience in orbit isn't a lack of gravity; they are actually in a constant state of free-fall around the Earth.",
+            "Bismuth is diamagnetic, meaning it repels magnetic fields. If you put a strong magnet near it, the bismuth will actually push it away.",
+            "Kinetic energy scales with the square of velocity. That means a car crash at 60 mph has four times the destructive energy of a crash at 30 mph, not twice."
+        ];
 
-            // 3. Display the fact on the website
-            document.getElementById('daily-fact').innerText = physicsFacts[factIndex];
+        // 2. The Math: Get the current day and pick a fact
+        // This divides the current time by the milliseconds in a day to get a fixed number for today
+        const todayNumber = Math.floor(Date.now() / (1));
+
+        // The % (modulo) ensures that if we run out of facts, it just loops back to the beginning!
+        const factIndex = todayNumber % physicsFacts.length;
+
+        // 3. Display the fact on the website
+        document.getElementById('daily-fact').innerText = physicsFacts[factIndex];
+
+        // -------------
+
+        // ==========================================
+        // LIVE PHYS.ORG NEWS FEED
+        // ==========================================
+
+        // We use rss2json to bypass browser security and get clean data
+        // ==========================================
+        // LIVE PHYS.ORG NEWS FEED
+        // ==========================================
+
+        // We use rss2json to bypass browser security and get clean data
+        // ==========================================
+        // 3. LIVE PHYS.ORG NEWS FEED (Real Photo Layout)
+        // ==========================================
+        const physOrgRSS = 'https://phys.org/rss-feed/';
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${physOrgRSS}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const newsGrid = document.getElementById('news-grid');
+                if (!newsGrid) return; // Failsafe if section isn't on the page yet
+                newsGrid.innerHTML = ''; // Clear the "Fetching data..." text
+
+                // Grab only the top 3 most recent articles
+                const articles = data.items.slice(0, 3);
+
+                articles.forEach(article => {
+                    // Get the image from the feed
+                    let imageUrl = article.thumbnail || 'images/placeholder-logo.webp';
+
+                    // Clean up the date string so it looks nice
+                    const cleanDate = article.pubDate.split(' ')[0];
+
+                    // Build the HTML card with the real image tags
+                    const card = document.createElement('div');
+                    card.className = 'news-card';
+                    card.innerHTML = `
+                            <img src="${imageUrl}" alt="News Thumbnail">
+                            <div class="news-content">
+                                <span class="news-date">${cleanDate}</span>
+                                <h4 class="news-title">${article.title}</h4>
+                                <a href="${article.link}" target="_blank" class="news-link">Read Full Story ▹</a>
+                            </div>
+                        `;
+
+                    // Drop it into the website
+                    newsGrid.appendChild(card);
+                });
+            })
+            .catch(error => {
+                const newsGrid = document.getElementById('news-grid');
+                if (newsGrid) {
+                    newsGrid.innerHTML = '<p style="text-align: center; width: 100%;">⚠️ Could not connect to the news feed right now.</p>';
+                }
+            });        //---------
+
+
 
 
         document.addEventListener('DOMContentLoaded', function () {
