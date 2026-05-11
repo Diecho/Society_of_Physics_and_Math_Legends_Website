@@ -69,6 +69,14 @@
                 </div>
             </div>
         </div>
+        <div class="fact-container">
+            <div class="fact-header">
+                <span class="icon">⚡</span> Physics Fact of the Day
+            </div>
+            <p id="daily-fact">Loading today's fact...</p>
+        </div>
+
+
     </section>
 
     <section id="research" class="section bg-darker">
@@ -105,7 +113,8 @@
         <h3 class="subsection-title" style="margin-top: 60px;">Topics Actively Researched</h3>
         <ul class="active-research-list">
             <li>Gravito-electromagnetism</li>
-            <li>Interaction of gravity and macroscopic quantum systems (superconductors, Bose-Einstein condensates, etc.)</li>
+            <li>Interaction of gravity and macroscopic quantum systems (superconductors, Bose-Einstein condensates,
+                etc.)</li>
             <li>Gravitational wave generation, detection, and reflection</li>
             <li>Casimir effects (electromagnetic and gravitational)</li>
             <li>Aharonov-Bohm effects (electromagnetic and gravitational)</li>
@@ -172,7 +181,7 @@
                             <p>1 pm — 3 pm | CCC AC1-208</p>
                         </div>
                         </li> -->
-        
+
             <li>
                 <div class="event-date">May 07, 2026</div>
                 <div class="event-details">
@@ -187,9 +196,9 @@
                     <p>9 am — 4 pm | AC3 lobby & AC3-101 </p>
                 </div>
             </li>
-        
+
         </ul>
-        </section>
+    </section>
 
     <footer>
         <p>&copy; 2026 Society of Physics and Math Legends | Clovis Community College</p>
@@ -200,6 +209,35 @@
         </div>
     </footer>
     <script>
+        // ==========================================
+            // FACT OF THE DAY LOGIC
+            // ==========================================
+            
+            // 1. Your database of facts (Add as many as you want!)
+            const physicsFacts = [
+                "Light from the Earth takes just 1.255 seconds to reach the Moon.",
+                "If you traveled at the speed of light, time would completely stop for you.",
+                "There is a giant cloud of alcohol in Sagittarius B that holds enough alcohol to fill 400 trillion trillion pints of beer.",
+                "Because of gravitational time dilation, your head is slightly older than your feet.",
+                "A teaspoon of a neutron star would weigh about 6 billion tons on Earth.",
+                "Water can boil and freeze at the exact same time. This is known as the 'Triple Point'.",
+                "Venus spins backwards compared to the other planets in our solar system.",
+                "There are more stars in the universe than grains of sand on all the beaches on Earth.",
+                "Quantum entanglement allows particles to connect instantly, regardless of distance—Einstein called this 'spooky action at a distance'.",
+                "Sound travels about 4.3 times faster in water than it does in air."
+            ];
+
+            // 2. The Math: Get the current day and pick a fact
+            // This divides the current time by the milliseconds in a day to get a fixed number for today
+            const todayNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+            
+            // The % (modulo) ensures that if we run out of facts, it just loops back to the beginning!
+            const factIndex = todayNumber % physicsFacts.length;
+
+            // 3. Display the fact on the website
+            document.getElementById('daily-fact').innerText = physicsFacts[factIndex];
+
+
         document.addEventListener('DOMContentLoaded', function () {
             // Find all the images and the button
             const galleryItems = document.querySelectorAll('.gallery-item');
